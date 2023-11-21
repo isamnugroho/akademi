@@ -1,0 +1,24 @@
+{
+  "cwd": "D:\\SERVER\\laragon-insan\\www\\PKL\\akademi",
+  "type": [
+    "capacitor"
+  ],
+  "name": "My Ticket",
+  "framework": "core",
+  "template": "single-view",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkMode": false,
+    "iconFonts": true
+  },
+  "customBuild": false,
+  "pkg": "io.framework7.myapp",
+  "capacitor": {
+    "platforms": [
+      "android"
+    ]
+  }
+}

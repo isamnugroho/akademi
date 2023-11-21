@@ -1,0 +1,66 @@
+<template>
+  <div class="page page-home page-with-subnavbar">
+    <div class="toolbar tabbar tabbar-labels toolbar-bottom" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); ">
+      <div class="toolbar-inner">
+        <a href="/home/" class="tab-link" style="color:white;">
+          <img style="height: 30px; width: 30px" src="./static/img/browser.png" />
+          <p>Homes</p>
+        </a>
+        <a href="/list-job/"  class="tab-link  tab-link-active" style="color:white;">
+          <img style="height: 30px; width: 30px" src="./static/img/fileblue.png" />
+          <p>JobList</p>
+        </a>
+        <a href="#" @click=${reload} class="tab-link" style="color:white;">
+          <img style="height: 30px; width: 30px" src="./static/img/history.png" />
+          <p>Sync Data</p>
+        </a>
+        <a href="/pending-job/" class="tab-link" style="color:white;">
+          <img style="height: 30px; width: 30px" src="./static/img/folset7.png" />
+          <p>Pending</p>
+        </a>
+        <a href="/profile/" class="tab-link" data-panel="right" style="color:white;">
+          <img style="height: 30px; width: 30px" src="./static/img/userpro.png" />
+          <p>Profile</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="tabs-animated-wrap">
+      <div class="tabs">
+        <div id="tab-1" class="tab tab-active page-content ptr-content">
+          
+          <div class="navbar navbar-page" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );">
+            <div class="navbar-inner sliding">
+              <div class="left">
+                <a href="#" class="link back">
+                  <i class="icon icon-back"></i>
+                  <span class="if-not-md">Back</span>
+                </a>
+              </div>
+              <div class="title">
+                ACCEPTED JOB LIST
+              </div>
+            </div>
+          </div>
+          
+          <div class="ptr-preloader">
+            <div class="preloader"></div>
+            <div class="ptr-arrow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	</div>
+</template>
+<script>
+  export default (props) => {
+    const user = props.user;
+    
+    const reload = () => {
+      window.location.reload();
+    }
+
+    return $render;
+  }
+</script>

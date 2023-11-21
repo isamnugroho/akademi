@@ -1,0 +1,322 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );">
+      <div class="navbar-inner">
+        <img style="height: 45px; width: 190px;margin: 0px 20px 0px 5px; " src="./static/img/assindo.png" />
+      </div>
+    </div>
+    <!-- Toolbar-->
+    <div class="toolbar tabbar tabbar-labels toolbar-bottom" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );">
+      <div class="toolbar-inner">
+        <a href="/home/" class="tab-link tab-link-active" style="color:white;">
+            <img style="height: 30px; width: 30px" src="./static/img/browser.png" />
+            <p>Homes</p>
+        </a>
+        <a href="/list-job/" class="tab-link" style="color:white;">
+            <img style="height: 30px; width: 30px" src="./static/img/fileblue.png" />
+            <p>JobList</p>
+        </a>
+        <a href="#" @click=${reload} class="tab-link" style="color:white;">
+            <img style="height: 30px; width: 30px" src="./static/img/history.png" />
+            <p>Sync Data</p>
+        </a>
+        <a href="/pending-job/" class="tab-link" style="color:white;">
+            <img style="height: 30px; width: 30px" src="./static/img/folset7.png" />
+            <p>Pending</p>
+        </a>
+        <a href="/profile/" class="tab-link" data-panel="right" style="color:white;">
+            <img style="height: 30px; width: 30px" src="./static/img/userpro.png" />
+            <p>Profile</p>
+        </a>
+      </div>
+    </div>
+    <!-- Scrollable page content-->
+    
+    <div class="tabs-animated-wrap">
+      <div class="tabs">
+        <!-- tabs 1 -->
+        <div id="tab-1" class="tab tab-active page-content ptr-content">
+          <div class="ptr-preloader">
+              <div class="preloader"></div>
+              <div class="ptr-arrow"></div>
+          </div>
+
+          <div class="title-apps padding-middle background-primer" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );">
+            <div class="container">
+                <div class="row row-no-margin-bottom">
+                </div>
+            </div>
+          </div>
+
+          <div class="background-circle background-primer" style="background: linear-gradient(to bottom, #000000, #434343);">
+            <br />
+            <div class="container">
+              <div class="background-white border-radius padding-box-middle box-shadow" style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); border-radius: 8px 8px 8px 8px;">
+                <div class="row row-no-margin-bottom">
+                  <div class="col-100">
+                    <div class="float-left margin-right-small">
+                        <img style="float: left; margin: 3px 5px 0px 0px; height: 50px; width: 50px" src="./static/img/userpro.png" />
+                    </div>
+                    <div class="float-right margin-right-small">
+                      <a href="/absen/">
+                        <button class="col button button-fill" style="font-size: 10px; background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); height: 35px; width: 100%;">Attendance</button>
+                      </a>
+                    </div>
+                    <div class="overflow-hidden">
+                      <p class="small" style="color:black;font-size:10px; margin: 0px 0px 0px 0px;">
+                        <b style="color:black; font-size:16px; margin: 0px 0px 0px 0px;">${nama_pegawai}</b><br />
+                        <small style="color:black; font-size:10px; margin: 0px 0px 0px 0px;">ID Pegawai : ${id_pegawai}</small><br />
+                        <small style="color:black; font-size:10px; margin: 0px 0px 0px 0px;">Username : ${username} </small>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+
+          <div class="separator-small"></div>
+          <div class="separator-small"></div>
+
+          <div class="container">
+
+            <div class="row">
+
+              <!-- BOX MENU NEW JOB -->
+              <div class="col-50">
+                <a class="popover-open" href="#" data-popover=".popover-newjob">
+                  <div class="background-white text-center border-radius padding-box box-shadow" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% ); border-radius: 8px 8px 8px 8px;">
+                    <i class="icon">
+                      <img style="height: 50px; width: 50px" src="./static/img/foltime3.png" />
+                      <span class="badge color-red" style="height: 25px; width: 25px; margin: 3px 0px 0px -10px;"><b style="color:white;font-size:16px; margin: 0px 0px 0px 0px;">${countNew}</b></span>
+                    </i>
+                    <h6 style="color:white;" class="font-weight-500">NEW JOB</h6>
+                  </div>
+                </a>
+
+                <div class="popover popover-newjob" style="width: 96%;">
+                  <div class="popover-inner">
+                    <div class="card">
+                      <div class="card-header" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); color:white;">
+                        <p class="small"  style="color:white;font-size:10px; margin: 0px 0px 0px 0px;">
+                          <img style="float: left; margin: 2px 5px 0px -10px; height: 34px; width: 34px" src="./static/img/foltime3.png" />
+                          <b style="font-size:14px; margin: 0px 0px 0px 0px;">List New Incoming Job</b><br />
+                          <small style="font-size:12px; margin: -5px 0px 0px 0px;">Tickets & New Job</small>
+                        </p>
+                        <a class="link popover-close" href="#">
+                          <img style="float:right; height: 30px; width: 30px; margin: 1px 0px 0px 0px;" src="./static/img/delete.png" />
+                        </a>
+                      </div>
+                      <div class="card-content" style="background:#ebebeb; margin: 0px 0px 0px 0px;">
+                        <div class="data-table card">
+                          <br/>
+                        </div>
+                      </div>
+                      <div class="card-footer" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); color:white;">
+                        <button style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); height: 30px; width: 30%; margin: 0px 0px 0px 240px;float:right;">
+                          <a class="link popover-close" href="#">
+                           <b style="color:white;font-size:16px;">CLOSE </b>
+                          </a>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOX MENU JOB DONE -->
+              <div class="col-50">
+                <a class="popover-open" href="#" data-popover=".popover-jobdone">
+                  <div class="background-white text-center border-radius padding-box box-shadow" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% ); border-radius: 8px 8px 8px 8px;">
+                    <i class="icon">
+                      <img style="height: 50px; width: 50px" src="./static/img/done.png" />
+                      <span class="badge color-red" style="height: 25px; width: 25px; margin: 3px 0px 0px -10px;"><b style="color:white;font-size:16px; margin: 0px 0px 0px 0px;">${countNew}</b></span>
+                    </i>
+                    <h6 style="color:white;" class="font-weight-500">NEW JOB</h6>
+                  </div>
+                </a>
+
+                <div class="popover popover-jobdone" style="width: 96%;">
+                  <div class="popover-inner">
+                    <div class="card">
+                      <div class="card-header" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); color:white;">
+                        <p class="small"  style="color:white;font-size:10px; margin: 0px 0px 0px 0px;">
+                          <img style="float: left; margin: 2px 5px 0px -10px; height: 34px; width: 34px" src="./static/img/done.png" />
+                          <b style="font-size:14px; margin: 0px 0px 0px 0px;">List New Incoming Job</b><br />
+                          <small style="font-size:12px; margin: -5px 0px 0px 0px;">Tickets & New Job</small>
+                        </p>
+                        <a class="link popover-close" href="#">
+                          <img style="float:right; height: 30px; width: 30px; margin: 1px 0px 0px 0px;" src="./static/img/delete.png" />
+                        </a>
+                      </div>
+                      <div class="card-content" style="background:#ebebeb; margin: 0px 0px 0px 0px;">
+                        <div class="data-table card">
+                          <br/>
+                        </div>
+                      </div>
+                      <div class="card-footer" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); color:white;">
+                        <button style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); height: 30px; width: 30%; margin: 0px 0px 0px 240px;float:right;">
+                          <a class="link popover-close" href="#">
+                           <b style="color:white;font-size:16px;">CLOSE </b>
+                          </a>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <div class="card-header" style="background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6%); color:white;">
+                    <p class="small" style="color:white;font-size:10px; margin: 0px 0px 0px 0px;">
+                      <img style="float: left; margin: 3px 10px 0px -10px; height: 35px; width: 35px" src="./static/img/new-ticket.png" />
+                      <b style="color:white; font-size:16px; margin: 0px 0px 0px 0px;">List Pending Job</b><br />
+                      <small style="color:white; font-size:10px; margin: 0px 0px 0px 0px;">Tickets/Job Pending </small>
+                    </p>
+                  </div>
+                  <div class="card-content" style="background:#ebebeb; margin: 0px 0px 0px 0px;">
+                    <div class="left">
+                      <div class="data-table card">
+                        <table>
+                          <tbody>
+                            ${prepareJobData.length > 0 ? $h`
+                              <tr>
+                                <th class="label-cell" style="  background:#ebebeb; color:grey;height:30px;">No. TICKET</th>
+                                <th class="label-cell" style="  background:#ebebeb; color:grey;height:30px;">ID ATM</th>
+                                <th class="label-cell" style="  background:#ebebeb; color:grey;height:30px;">DETAIL</th>
+                              </tr>
+                              ${prepareJobData.map((data) => $h`
+                                <tr>
+                                  <td class="label-cell" style="height:25px;">${data.ticket_id}</td>
+                                  <td class="label-cell" style="height:25px;">${data.atm_id}</td>
+                                  <td class="label-cell" style="height:25px;color:red;">
+                                    <a href="#"  class="tab-link link popover-close" style="color:red;">
+                                      DETAIL 
+                                    </a>
+                                  </td>
+                                </tr>
+                              `)}
+                            ` : $h`
+                              <div class="container">
+                                <div class="background-white padding-box-middle text-center">
+                                  NO DATA
+                                </div>
+                              </div>
+                            `}
+                          </tbody>
+                        </table>
+                        <br />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  import logoSrc from '../assets/assindo.png';
+
+  export default function (props, { $f7, $update, $on, $onBeforeMount, $onMounted, $onBeforeUnmount, $onUnmounted }) {
+    let util = $f7.params.util;
+    let nama_pegawai = 'Jimmy';
+    let id_pegawai = 25;
+    let username = 25;
+    let countNew = 0;
+
+    // let prepareJobData
+
+    
+    let prepareJobData = [];
+
+    const loadprepareJobData = (callback) => {
+      var data = { 
+        id_user: '30',
+        id_lokasi: '59'
+      }; 
+      var url = util.getServer() + "service/job_pending";
+		  var str = url + "?" + new URLSearchParams(data).toString();
+      fetch(str)
+        .then((res) => res.json())
+        .then((resp) => {
+          callback(resp);
+        });
+    }
+
+    const reload = () => {
+      window.location.reload();
+    }
+
+    
+    // $onUnmounted(() => {
+    //   alert(util.getServer());
+    //   console.log('onUnmounted');
+    //   fetch(util.getServer() + "service/new_jobX")
+    //     .then((res) => res.json())
+    //     .then((resp) => {
+
+    //       console.log(resp);
+    //       // state.users = users;
+    //     });
+
+    // });
+
+    // Lifecycle
+    $onBeforeMount(() => {
+      console.log('onBeforeMount');
+    });
+    $onMounted(() => {
+      console.log('onMounted');
+
+      loadprepareJobData(function(resp) {
+        prepareJobData = resp;
+        $update();
+      });
+    });
+    $onBeforeUnmount(() => {
+      console.log('onBeforeUnmount');
+    });
+    $onUnmounted(() => {
+      console.log('onUnmounted');
+    });
+
+    // Page Events
+    $on('pageMounted', (e, page) => {
+      console.log('pageMounted', page);
+
+      
+    });
+    $on('pageInit', (e, page) => {
+      console.log('pageInit', page);
+    });
+    $on('pageBeforeIn', (e, page) => {
+      console.log('pageBeforeIn', page);
+    });
+    $on('pageAfterIn', (e, page) => {
+      console.log('pageAfterIn', page);
+    });
+    $on('pageBeforeOut', (e, page) => {
+      console.log('pageBeforeOut', page);
+    });
+    $on('pageAfterOut', (e, page) => {
+      console.log('pageAfterOut', page);
+    });
+    $on('pageBeforeRemove', (e, page) => {
+      console.log('pageBeforeRemove', page);
+    });
+
+
+
+    return $render;
+  }
+</script>
